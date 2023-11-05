@@ -7,7 +7,7 @@ from pathlib import Path
 whitelist =["example.com"]
 domainlist = []
 reason =[]
-
+print("Tool Written by Jkerai1 https://github.com/jkerai1\n")
 query = input("Domain to twist? ")
 if query == "":
     query = "microsoft.com" #FallBack
