@@ -22,12 +22,9 @@ if os.path.exists(filename)== False:
 
 z = dnstwist.run(domain=query, format = 'csv')
 
-for i in z:
+for i in z[1:]:
     domainlist.append(i['domain'])
     reason.append(i['fuzzer'])
-    
-domainlist.remove(query)
-reason.remove("*original") # Remove our actual domain from the list
             
 with open(filename, 'a',newline='') as file:
     writer = csv.writer(file)
