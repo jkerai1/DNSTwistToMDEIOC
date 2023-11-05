@@ -10,7 +10,7 @@ reason =[]
 
 query = input("Domain to twist? ")
 if query == "":
-    query = "microsoft.com" #FallBack  #whitelist.append(query)
+    query = "microsoft.com" #FallBack
 
 IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"]
 stamp = datetime.datetime.now().strftime("%x").replace("/","-")
@@ -21,7 +21,7 @@ if os.path.exists(filename)== False:
         writer = csv.writer(file)
         writer.writerow(IOC_Columns)
 
-z = dnstwist.run(domain=query, format = 'csv') #tld = 'common_tlds.dict') if you need extra TLDs.
+z = dnstwist.run(domain=query, format = 'csv') #,tld = 'common_tlds.dict') if you need extra TLDs.
 
 for i in z[1:]: #First record is our actual domain
     domainlist.append(i['domain'])
