@@ -21,7 +21,7 @@ if os.path.exists(filename)== False:
         writer = csv.writer(file)
         writer.writerow(IOC_Columns)
 
-z = dnstwist.run(domain=query, format = 'csv')
+z = dnstwist.run(domain=query, format = 'csv') #tld = 'common_tlds.dict') if you need extra TLDs.
 
 for i in z[1:]: #First record is our actual domain
     domainlist.append(i['domain'])
