@@ -4,5 +4,5 @@ $csv = Import-CSV 'YOUR CSV'
 
 foreach($line in $csv){
     $url = $line.IndicatorValue 
-    New-TenantAllowBlockListItems -ListType Sender -Block -Entries $url -NoExpiration
+    New-TenantAllowBlockListItems -ListType Sender -Block -Entries $url -NoExpiration -Notes "DNS Twist Block"
 }
