@@ -2,7 +2,7 @@
 $csv = Import-CSV 'YOUR CSV'
 #Sender First then URL
 foreach($line in $csv){
-    if ($line.IndicatorType -eq "DomainName" -and !($line.IndicatorValue.Contains("xn--")) ){
+    if ($line.IndicatorType -eq "DomainName"){
         $url = $line.IndicatorValue 
         New-TenantAllowBlockListItems -ListType Sender -Block -Entries $url -NoExpiration -Notes $line.Description
         $url = $line.IndicatorValue + "/*"
