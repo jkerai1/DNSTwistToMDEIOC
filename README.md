@@ -21,4 +21,4 @@ Domains can be whitelisted by adding to the whitelist variable
 
 Block The Domain in Tenant Allow Block List using the powershell scripts  
 
-TABL does not support punycode (xn--)
+TABL does not support punycode (xn--) and MDE support for punycode is limited
