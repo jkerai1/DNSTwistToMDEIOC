@@ -1,5 +1,5 @@
 # DNSTwistToMDEIOC
-Convert DNSTwist Results to MDE IOCs
+Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists !  
 
 https://github.com/elceef/dnstwist
 
