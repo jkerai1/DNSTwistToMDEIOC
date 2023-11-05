@@ -13,4 +13,6 @@ File naming convention is DNSTwist+{thedate}.csv
 
 No duplication checks between runs :) however MDE natively handles duplicates
 
-Do not blindly upload, validate results before uploading
+Do not blindly upload, validate results before uploading  
+
+Domains can be whitelisted by adding to the whitelist variable
