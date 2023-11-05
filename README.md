@@ -19,4 +19,4 @@ Domains can be whitelisted by adding to the whitelist variable
 
 # Whats Next?  
 
-TenantAllowBlockList!
+Block The Domain in Tenant Allow Block List using the powershell scripts
