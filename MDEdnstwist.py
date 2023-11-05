@@ -31,4 +31,7 @@ with open(filename, 'a',newline='') as file:
     writer = csv.writer(file)
     for i in domainlist:
         if i.replace(' ','') not in whitelist:
-            writer.writerow(["DomainName",i,"","Block","","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])
+            try: #Try Converting the PunyCode (xn--)
+                writer.writerow(["DomainName",i.encode('idna').decode('idna'),"","Block","","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])#Create MDE BlockList
+            except: #fallback or apply additional logic (pending)
+                writer.writerow(["DomainName",i,"","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])
