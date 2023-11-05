@@ -34,4 +34,5 @@ with open(filename, 'a',newline='') as file:
             try: #Try Converting the PunyCode (xn--)
                 writer.writerow(["DomainName",i.encode('idna').decode('idna'),"","Block","","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])#Create MDE BlockList
             except: #fallback or apply additional logic (pending)
-                writer.writerow(["DomainName",i,"","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])
+                print("ERROR" + i)
+                #writer.writerow(["DomainName",i,"","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"]) #MDE has limited Punycode support and TABL has none.
