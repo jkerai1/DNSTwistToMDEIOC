@@ -7,20 +7,21 @@ from pathlib import Path
 domainlist = []
 reason =[]
 
+query = input("Domain to twist? ")
+if query == "":
+    query = "microsoft.com" #FallBack
+
 IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"]
 stamp = datetime.datetime.now().strftime("%x").replace("/","-")
-filename = "DNSTwist+" + stamp + ".csv"
+filename = "DNSTwist+" + query + stamp + ".csv"
 
 if os.path.exists(filename)== False:
     with open(filename, 'a+',newline='') as file:
         writer = csv.writer(file)
         writer.writerow(IOC_Columns)
 
-query = input("Domain to twist? ")
-if query == "":
-    query = "microsoft.com" #FallBack
-
 z = dnstwist.run(domain=query, format = 'csv')
+
 for i in z:
     domainlist.append(i['domain'])
     reason.append(i['fuzzer'])
