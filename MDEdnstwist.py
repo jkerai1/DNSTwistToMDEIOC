@@ -32,7 +32,7 @@ with open(filename, 'a',newline='') as file:
     for i in domainlist:
         if i.replace(' ','') not in whitelist:
             try: #Try Converting the PunyCode (xn--)
-                writer.writerow(["DomainName",i.encode('idna').decode('idna'),"","Block","","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])#Create MDE BlockList
-            except: #fallback likely csv encoding issue
-                print("ERROR" + i.encode('idna').decode('idna'))
-                #writer.writerow(["DomainName",i,"","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"]) #MDE has limited Punycode support and TABL has none.
+                writer.writerow(["DomainName",i.encode('idna').decode('idna'),"","Block","","Dnstwist "+ reason[domainlist.index(i)],"Reason for DNSTwist Block: " + reason[domainlist.index(i)] + "\nTool written by jkerai1","","","","","FALSE"])#Create MDE BlockList
+            except: #fallback
+                print("FALLBACK: " + i.encode('idna').decode('idna'))
+                #writer.writerow(["DomainName",i,"","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])
