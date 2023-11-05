@@ -7,9 +7,9 @@ from pathlib import Path
 whitelist =["example.com"]
 domainlist = []
 reason =[]
+
 query = input("Domain to twist? ")
-if query == "":
-    query = "microsoft.com" #FallBack
+if query == "": query = "microsoft.com" #FallBack
 
 IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"] #schema
 stamp = datetime.datetime.now().strftime("%x").replace("/","-") 
