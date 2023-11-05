@@ -1,5 +1,5 @@
 # DNSTwistToMDEIOC
-Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists !  
+Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists !  Can detect typosquatters, phishing attacks, fraud, and brand impersonation!
 
 https://github.com/elceef/dnstwist
 
