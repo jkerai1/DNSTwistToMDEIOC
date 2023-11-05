@@ -2,9 +2,11 @@
 $csv = Import-CSV 'YOUR CSV'
 #Sender First then URL
 foreach($line in $csv){
-    $url = $line.IndicatorValue 
-    New-TenantAllowBlockListItems -ListType Sender -Block -Entries $url -NoExpiration -Notes "DNS Twist Sender Block"
-    $url = $line.IndicatorValue + "/*"
-    #$url.insert(0,"~") #adjust wildcards accordingly see https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/tenant-allow-block-list-urls-configure?view=o365-worldwide#url-entry-scenarios
-    New-TenantAllowBlockListItems -ListType Url -Block -Entries $url -NoExpiration -Notes "Dnstwist URL Block" 
+    if ($line.IndicatorType -eq "DomainName" -and !($line.IndicatorValue.StartsWith("xn--")) ){
+        $url = $line.IndicatorValue 
+        New-TenantAllowBlockListItems -ListType Sender -Block -Entries $url -NoExpiration -Notes "DNS Twist Sender Block"
+        $url = $line.IndicatorValue + "/*"
+        #$url.insert(0,"~") #adjust wildcards accordingly see https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/tenant-allow-block-list-urls-configure?view=o365-worldwide#url-entry-scenarios
+        New-TenantAllowBlockListItems -ListType Url -Block -Entries $url -NoExpiration -Notes "Dnstwist URL Block" 
+        }
 }
