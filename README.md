@@ -1,7 +1,7 @@
 # DNSTwistToMDEIOC
 Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists ! This should run along aside Domain impersonation protection inside of Defender for Office (MDO)  
 
-Can detect typosquatters, phishing attacks, fraud, and brand impersonation!
+Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 
 https://github.com/elceef/dnstwist
 
