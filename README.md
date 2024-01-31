@@ -1,9 +1,13 @@
 # DNSTwistToMDEIOC
-Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists ! This should run along aside Domain impersonation protection inside of Defender for Office (MDO)  
+Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists ! This should run along aside Domain impersonation protection inside of Defender for Office (MDO). 
 
 Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 
-https://github.com/elceef/dnstwist
+Install DNSTwist using
+<pre>
+pip install dnstwist
+</pre>
+Reference: https://github.com/elceef/dnstwist
 
 # How to Import  
 ![image](https://user-images.githubusercontent.com/55988027/279781043-db91bef8-7537-4aa8-afe2-e28eb6163717.png)
