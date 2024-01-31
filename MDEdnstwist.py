@@ -1,31 +1,34 @@
 import os
-import csv                                     #Tool Written by Jkerai1 https://github.com/jkerai1
+import csv                                                                             #Tool Written by Jkerai1 https://github.com/jkerai1
 import dnstwist #pip install this
 import datetime
 from pathlib import Path
 
-whitelist =["example.com"]
+whitelist =["example.com"] #domains to exclude from blocking
 domainlist = []
 reason =[]
+domainsToTwist = ["outlook.com","google.com"] #add additional domains to twist here
 
-query = input("Domain to twist? ")
-if query == "": query = "microsoft.com" #FallBack
+domaininput = input("Domain to twist? ")
+if domaininput == "": domaininput = "microsoft.com" #FallBack to microsoft.com if empty
+domainsToTwist.append(domaininput)
 
-IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"] #schema
-stamp = datetime.datetime.now().strftime("%x").replace("/","-") 
-filename = "DNSTwist " + query + stamp + ".csv" 
+IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"]
+stamp = datetime.datetime.now().strftime("%x").replace("/","-")
+filename = "DNSTwist " + stamp + ".csv"
 
-if os.path.exists(filename)== False: #create file if doesn't exist
-    with open(filename, 'a+',newline='') as file:
+if os.path.exists(filename)== False:
+    with open(filename, 'a+',newline='',encoding='utf-8') as file: #Build new file in append mode
         writer = csv.writer(file)
         writer.writerow(IOC_Columns)
 
-z = dnstwist.run(domain=query, format = 'csv') #,tld = 'common_tlds.dict') if you need extra TLDs.  OR ,dictionary = 'english.dict') if you need a wider dictionary
+for query in domainsToTwist:        
+    z = dnstwist.run(domain=query, format = 'csv')#,tld = 'TLDextended.dict')#,dictionary = 'english.dict') - use following to extend TLDs or Dictionary
 
-for i in z[1:]: #First record is our actual domain so skip it
-    domainlist.append(i['domain'])
-    reason.append(i['fuzzer'])
-    
+    for i in z[1:]: #First record is our actual domain
+        domainlist.append(i['domain'])
+        reason.append(i['fuzzer'])
+            
 with open(filename, 'a',newline='') as file:
     writer = csv.writer(file)
     for i in domainlist:
@@ -33,4 +36,4 @@ with open(filename, 'a',newline='') as file:
             try: #Try Converting the PunyCode (xn--)
                 writer.writerow(["DomainName",i.encode('idna').decode('idna'),"","Block","","Dnstwist "+ reason[domainlist.index(i)],"Reason for DNSTwist Block: " + reason[domainlist.index(i)] + "\nTool written by jkerai1","","","","","FALSE"])#Create MDE BlockList
             except: #fallback
-                print("Error Adding Domain,unlikely supported by MDE: " + i.encode('idna').decode('idna')) #writer.writerow(["DomainName",i,"","DNSTWIST",reason[domainlist.index(i)],"","","","","FALSE"])
+                print("   PunyCode fallback- cannot add to CSV: " + i.encode('idna').decode('idna'))
