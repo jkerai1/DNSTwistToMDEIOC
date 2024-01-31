@@ -5,7 +5,7 @@ Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 
 ![image](https://github.com/jkerai1/DNSTwistToMDEIOC/assets/55988027/668390d0-25f2-44ff-8b6b-441b6c141a73)
 
-Result - (note result needs xn-- encoding): 
+Result - (note result needs xn-- encoding):  
 ![image](https://github.com/jkerai1/DNSTwistToMDEIOC/assets/55988027/f3df970e-cda3-4fa4-b921-bb44127ecd7b)
 
 # How To install DNSTwist in Python  
