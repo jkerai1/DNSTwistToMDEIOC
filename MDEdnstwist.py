@@ -7,7 +7,7 @@ from pathlib import Path
 whitelist =["example.com"] #domains to exclude from blocking
 domainlist = []
 reason =[]
-domainsToTwist = ["outlook.com"] #add additional domains to twist here
+domainsToTwist = [] #add additional domains to twist here
 
 domaininput = input("Domain to twist? ")
 if domaininput == "": domaininput = "microsoft.com" #FallBack to microsoft.com if empty
