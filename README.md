@@ -17,17 +17,21 @@ Reference: https://github.com/elceef/dnstwist
 
 File naming convention is DNSTwist+{thedate}.csv
 
+#General Usage  
+
 No duplication checks between runs :) however MDE natively handles duplicates
 
 Do not blindly upload, validate results before uploading  
 
-Domains can be whitelisted by adding to the whitelist variable
+Domains can be whitelisted by adding to the whitelist variable  
+
+Extra domains to be twisted can be added to the domainsToTwist List  
 
 # Whats Next?  
 
 Block The Domain in Tenant Allow Block List using the powershell script (sender domain and URL)
 
-TABL does not support punycode (xn--) and MDE support for punycode is limited. Defender's impersonation list is hidden but TABL blocks will verify explictly domain is blocked.    
+TABL does not support punycode (xn--) and MDE support for punycode is limited. Defender for Office's impersonation list is hidden but TABL blocks will verify explictly domain is blocked.    
 
 # Misc  
 A good online punycode converter: https://www.punycoder.com/
