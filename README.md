@@ -2,6 +2,7 @@
 Convert DNSTwist Results to MDE IOCs then turn them into TenantAllowBlockLists ! This should run along aside Domain impersonation protection inside of Defender for Office (MDO). 
 
 Can block typosquatters, phishing attacks, fraud, and brand impersonation!
+# How To install DNSTwist in Python  
 
 Install DNSTwist using
 <pre>
@@ -17,7 +18,7 @@ Reference: https://github.com/elceef/dnstwist
 
 File naming convention is DNSTwist+{thedate}.csv
 
-#General Usage  
+# General Usage  
 
 No duplication checks between runs :) however MDE natively handles duplicates
 
