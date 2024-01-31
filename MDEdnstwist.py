@@ -15,7 +15,7 @@ domainsToTwist.append(domaininput)
 
 IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"]
 stamp = datetime.datetime.now().strftime("%x").replace("/","-")
-filename = "DNSTwist " + stamp + ".csv"
+filename = "DNSTwist " + domainsToTwist[-1] + stamp + ".csv"
 
 if os.path.exists(filename)== False:
     with open(filename, 'a+',newline='',encoding='utf-8') as file: #Build new file in append mode
