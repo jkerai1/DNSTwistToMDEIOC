@@ -43,3 +43,9 @@ TABL does not support punycode (xn--) and MDE support for punycode is limited. D
 
 # Misc  
 A good online punycode converter: https://www.punycoder.com/
+
+
+# See also MDE IOC/TABL Repos for 
+JoeSandBox: https://github.com/jkerai1/JoeSandBoxToMDEBlockList   
+TLD: https://github.com/jkerai1/TLD-TABL-Block  
+Ransomwatch: https://github.com/jkerai1/RansomWatchToMDEIoC/tree/main
