@@ -14,7 +14,7 @@ Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 # Result - (note needs xn-- encoding):  
 ![image](https://github.com/jkerai1/DNSTwistToMDEIOC/assets/55988027/f3df970e-cda3-4fa4-b921-bb44127ecd7b)
 
-#KQL  
+# KQL  
 
 DeviceEvents  
 | where ActionType == "SmartScreenUrlWarning"  
