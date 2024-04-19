@@ -21,6 +21,9 @@ DeviceEvents
 | extend URL = replace_string(RemoteUrl,'.','[.]')  
 | summarize by URL, DeviceName,AccountName,InitiatingProcessAccountName  
 
+![image](https://github.com/jkerai1/DNSTwistToMDEIOC/assets/55988027/dedfe6b0-8841-4460-a7b3-4efbfaece62f)
+
+
 # How To install DNSTwist in Python  
 
 Install DNSTwist using
