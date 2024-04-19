@@ -16,10 +16,10 @@ Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 
 #KQL  
 
-DeviceEvents
-| where ActionType == "SmartScreenUrlWarning"
-| extend URL = replace_string(RemoteUrl,'.','[.]')
-| summarize by URL, DeviceName,AccountName,InitiatingProcessAccountName
+DeviceEvents  
+| where ActionType == "SmartScreenUrlWarning"  
+| extend URL = replace_string(RemoteUrl,'.','[.]')  
+| summarize by URL, DeviceName,AccountName,InitiatingProcessAccountName  
 
 # How To install DNSTwist in Python  
 
