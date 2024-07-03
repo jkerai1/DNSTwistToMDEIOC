@@ -15,7 +15,7 @@ def main():
     reason =[]
 
     args = parser.parse_args()
-    domainsToTwist.append(args.domainsToTwist)
+    domainsToTwist.append(str(args.domainsToTwist))
 
     IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"]
     stamp = datetime.datetime.now().strftime("%x").replace("/","-")
