@@ -41,4 +41,4 @@ jobs:
 
     # Run Holehe with the provided input
     - name: Run Script
-      run: python DNSTwistArgParsed.py --domaininput {{$name}}
+      run: python DNSTwistArgParsed.py --domaininput "{{$name}}"
