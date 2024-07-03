@@ -9,12 +9,12 @@ def main():
     domainsToTwist = [] #add additional domains to twist here
     parser = argparse.ArgumentParser(description="Domain twisting script")
     parser.add_argument('--domaininput', type=str, default="google.com", help='Domain to twist')
+    args = parser.parse_args()
     
     domain_temp = args.domainsToTwist
     whitelist =["example.com"] #domains to exclude from blocking
     domainlist = []
     reason =[]
-    args = parser.parse_args()
     domainsToTwist.append(domain_temp)
 
     IOC_Columns = ["IndicatorType","IndicatorValue","ExpirationTime","Action","Severity","Title","Description","RecommendedActions","RbacGroups","Category","MitreTechniques","GenerateAlert"]
