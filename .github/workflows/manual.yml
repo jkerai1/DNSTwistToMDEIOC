@@ -30,6 +30,9 @@ jobs:
         cache: 'pip' # caching pip dependencies
     - run: pip install -r requirements.txt
 
-    # Run Holehe with the provided input
+    # Run TWister with the provided input
     - name: Run Script
       run: python DNSTwistArgParsed.py --domaininput ${{ github.event.inputs.name }}
+
+    - name: Cat CSV
+      run: find -type f -name "*.csv" > cat
