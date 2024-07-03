@@ -11,7 +11,7 @@ def main():
     parser.add_argument('--domaininput', type=str, default="google.com", help='Domain to twist')
     args = parser.parse_args()
     
-    domain_temp = args.domainsToTwist
+    domain_temp = args.domaininput
     whitelist =["example.com"] #domains to exclude from blocking
     domainlist = []
     reason =[]
