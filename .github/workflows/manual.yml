@@ -23,21 +23,12 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Set up Python environment
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
       with:
-        python-version: '3.x'
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    # Arg Check
-    - name: ArgCheck
-      run: echo "Checking ${{ github.event.inputs.name }}"
-      
-    # Install DNSTwist
-    - name: Install DNSTwist
-      run: pip install DNSTwist
+        python-version: '3.X'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
 
     # Run Holehe with the provided input
     - name: Run Script
