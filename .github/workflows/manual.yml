@@ -14,10 +14,6 @@ on:
         required: true
         # The data type of the input
         type: string
-        
-defaults:
-  run:
-    working-directory: ./
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,6 +30,10 @@ jobs:
         python-version: '3.x'
     - name: Checkout
       uses: actions/checkout@v2
+
+    # Arg Check
+    - name: ArgCheck
+      run: echo "Checking ${{ github.event.inputs.name }}"
       
     # Install DNSTwist
     - name: Install DNSTwist
@@ -41,4 +41,4 @@ jobs:
 
     # Run Holehe with the provided input
     - name: Run Script
-      run: python DNSTwistArgParsed.py --domaininput "{{$name}}"
+      run: python DNSTwistArgParsed.py --domaininput ${{ github.event.inputs.name }}
