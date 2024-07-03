@@ -35,7 +35,15 @@ jobs:
         
     # Runs a single command using the runners shell
     - name: Check input
-      run: echo "Checking ${{ github.event.inputs.name }}"
+      run: ..
+
+    # Runs a single command using the runners shell
+    - name: Check input
+      run: ls -a
+
+    # Runs a single command using the runners shell
+    - name: Check input
+      run: ls -a
       
     # Install Holehe
     - name: Install DNSTwist
