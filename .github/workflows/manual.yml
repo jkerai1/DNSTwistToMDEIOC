@@ -35,4 +35,4 @@ jobs:
       run: python DNSTwistArgParsed.py --domaininput ${{ github.event.inputs.name }}
 
     - name: Cat CSV
-      run: find -type f -name "*.csv" > cat
+      run: find -type f -name "*.csv" -print
