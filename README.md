@@ -15,12 +15,12 @@ Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 ![image](https://github.com/jkerai1/DNSTwistToMDEIOC/assets/55988027/f3df970e-cda3-4fa4-b921-bb44127ecd7b)
 
 # KQL  
-
+```
 DeviceEvents  
 | where (ActionType == "SmartScreenUrlWarning" and AdditionalFields.Experience == "CustomBlockList") or (AdditionalFields.ResponseCategory == "CustomBlockList" and ActionType == "ExploitGuardNetworkProtectionBlocked")
 | extend URL = replace_string(RemoteUrl,'.','[.]')  
 | summarize by URL, DeviceName,AccountName,InitiatingProcessAccountName  
-
+```
 ![image](https://github.com/jkerai1/DNSTwistToMDEIOC/assets/55988027/dedfe6b0-8841-4460-a7b3-4efbfaece62f)
 
 
