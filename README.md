@@ -17,7 +17,7 @@ Can block typosquatters, phishing attacks, fraud, and brand impersonation!
 # KQL  
 
 DeviceEvents  
-| where ActionType == "SmartScreenUrlWarning"  
+| where (ActionType == "SmartScreenUrlWarning" and AdditionalFields.Experience == "CustomBlockList") or (AdditionalFields.ResponseCategory == "CustomBlockList" and ActionType == "ExploitGuardNetworkProtectionBlocked")
 | extend URL = replace_string(RemoteUrl,'.','[.]')  
 | summarize by URL, DeviceName,AccountName,InitiatingProcessAccountName  
 
