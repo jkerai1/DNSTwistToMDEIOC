@@ -50,6 +50,8 @@ Domains can be whitelisted by adding to the whitelist variable
 
 Extra domains to be twisted can be added to the domainsToTwist List  
 
+There is a limit of 500 IOCs per CSV in MDE, if you need to split out the IOCs, please see: https://github.com/jkerai1/SoftwareCertificates/blob/main/Bulk-IOC-CSVs/Scripts/MDE-IOC-Batch-Separator.py  
+
 # Whats Next?  
 
 Block The Domain in Tenant Allow Block List using the powershell script (sender domain and URL)
