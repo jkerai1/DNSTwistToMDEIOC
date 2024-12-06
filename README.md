@@ -65,4 +65,5 @@ A good online punycode converter: https://www.punycoder.com/
 # See also MDE IOC/TABL Repos for 
 JoeSandBox: https://github.com/jkerai1/JoeSandBoxToMDEBlockList   
 TLD: https://github.com/jkerai1/TLD-TABL-Block  
-Ransomwatch: https://github.com/jkerai1/RansomWatchToMDEIoC/tree/main
+Ransomwatch: https://github.com/jkerai1/RansomWatchToMDEIoC/tree/main  
+Misc: https://github.com/jkerai1/SoftwareCertificates/tree/main/Bulk-IOC-CSVs
