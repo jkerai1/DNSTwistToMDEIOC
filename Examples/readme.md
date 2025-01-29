@@ -1,6 +1,8 @@
 # Example Files 
 
-Note there is a 500 upload limit #TODO automatic rollover
+Note there is a 500 upload limit #TODO automatic rollover  
+
+There is a limit of 500 IOCs per CSV in MDE, if you need to split out the IOCs, please see: https://github.com/jkerai1/SoftwareCertificates/blob/main/Bulk-IOC-CSVs/Scripts/MDE-IOC-Batch-Separator.py
 
 # Example Usage with KQL
 
