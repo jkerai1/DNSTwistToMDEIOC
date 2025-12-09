@@ -1,58 +1,67 @@
-name: Manual workflow
+name: Manual DNSTwist Workflow
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
     inputs:
       name:
-        # Friendly description to be shown in the UI instead of 'name'
         description: 'DomainToTwist'
-        # Default value if no value is explicitly provided
         default: 'microsoft.com'
-        # Input has to be provided for the workflow to run
         required: true
-        # The data type of the input
         type: string
 
 permissions:
   contents: write
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "twist"
   twist:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
+
     steps:
+    # 1. Checkout the repo
     - uses: actions/checkout@v4
+
+    # 2. Setup Python
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.X'
-        cache: 'pip' # caching pip dependencies
+        python-version: '3.x'
+        cache: 'pip'
+
+    # 3. Install dependencies
     - run: pip install -r requirements.txt
 
-    # Run TWister with the provided input
-    - name: Run Script
+    # 4. Run the DNSTwist script with input domain
+    - name: Run DNSTwist Script
       run: python DNSTwistArgParsed.py --domaininput ${{ github.event.inputs.name }}
 
-    - name: Cat CSV
-      run: find -type f -name "*.csv" -print
-            mkdir -p Examples
-            echo "CSV files found:"
-            find . -maxdepth 3 -type f -name "*.csv" -print
-            find . -maxdepth 3 -type f -name "*.csv" -exec mv "{}" Examples/ \; || true
-
-    - name: push
+    # 5. Move any CSVs into Examples folder
+    - name: Move CSVs into Examples folder
       run: |
-          # modify files here...
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Examples/
-          git commit -m "Added ${{ github.event.inputs.name }} To Examples Folder, Invoked by Manual Github Action"
-          git push origin main
+        echo "Searching for CSV files in repo root..."
+        find . -maxdepth 3 -type f -name "*.csv" -print
+
+        mkdir -p Examples
+
+        # Move all CSVs safely even if filenames have spaces
+        for f in ./*.csv; do
+          [ -e "$f" ] || continue
+          echo "Moving $f to Examples/"
+          mv "$f" Examples/
+        done
+
+    # 6. Stage the Examples folder and show status
+    - name: Stage Examples folder
+      run: |
+        git add Examples/
+        git status
+
+    # 7. Commit & push changes to main
+    - name: Commit and Push
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add Examples/
+        git commit -m "Added ${{ github.event.inputs.name }} to Examples folder (Manual Action)" || echo "No changes to commit"
+
+        git push origin main
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-      
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
