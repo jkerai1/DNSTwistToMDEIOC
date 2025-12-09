@@ -39,7 +39,7 @@ def main():
             if i.replace(' ','') not in whitelist:
                 try: #Try Converting the PunyCode (xn--)
                     print(i.encode('idna').decode('idna'))
-                    writer.writerow(["DomainName",i,"","Block","","Dnstwist "+ reason[domainlist.index(i)],"Reason for DNSTwist Block: " + reason[domainlist.index(i)] + "\nTool written by jkerai1","","","","","FALSE"])#Create MDE BlockList
+                    writer.writerow(["DomainName",i,"","Block","","Dnstwist "+ reason[domainlist.index(i)],"Reason for DNSTwist Block: " + reason[domainlist.index(i)] + "Tool written by jkerai1","","","","","FALSE"])#Create MDE BlockList
                 #writer.writerow(["DomainName",i.encode('idna').decode('idna'),"","Block","","Dnstwist "+ reason[domainlist.index(i)],"Reason for DNSTwist Block: " + reason[domainlist.index(i)] + "\nTool written by jkerai1","","","","","FALSE"])#Create MDE BlockList
                 except: #fallback
                     print("   PunyCode fallback- cannot add to CSV: " + i.encode('idna').decode('idna'))
