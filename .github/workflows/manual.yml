@@ -35,14 +35,14 @@ jobs:
       run: python DNSTwistArgParsed.py --domaininput ${{ github.event.inputs.name }}
 
     - name: Cat CSV
-      run: find -type f -name "*.csv" -print | xargs -0 git add
+      run: find -type f -name "*.csv" -print
 
     - name: push
       run: |
           # modify files here...
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          #git add *.csv
+          git add *.csv
           git commit -m "Added ${{ github.event.inputs.name }} To Examples Folder, Invoked by Manual Github Action"
           git push origin my-branch
   
