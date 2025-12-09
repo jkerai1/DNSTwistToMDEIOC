@@ -40,7 +40,9 @@ jobs:
     - name: Cat CSV
       run: find -type f -name "*.csv" -print
             mkdir -p Examples
-            mv *.csv Examples/ 2>/dev/null || echo "No CSV files found"
+            echo "CSV files found:"
+            find . -maxdepth 3 -type f -name "*.csv" -print
+            find . -maxdepth 3 -type f -name "*.csv" -exec mv "{}" Examples/ \; || true
 
     - name: push
       run: |
