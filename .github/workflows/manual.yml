@@ -15,6 +15,9 @@ on:
         # The data type of the input
         type: string
 
+permissions:
+  contents: write
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "twist"
@@ -45,5 +48,7 @@ jobs:
           git add *.csv
           git commit -m "Added ${{ github.event.inputs.name }} To Examples Folder, Invoked by Manual Github Action"
           git push origin main
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
       
